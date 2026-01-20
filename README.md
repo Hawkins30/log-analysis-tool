@@ -43,6 +43,7 @@ INFO : 1
 
 ## Project structure
 
+```text
 log_analyser/
 ├── logtool.py      # CLI entry point
 ├── parser.py       # Log file parsing and validation
@@ -117,14 +118,16 @@ INFO : 1
 
 ## 项目结构
 
+```text
 log_analyser/
 ├── logtool.py      # 命令行入口文件
-├── parser.py       # 日志解析与校验逻辑
-├── analyser.py     # 日志数据统计分析
-├── reporter.py    # 输出格式与文件写入
+├── parser.py       # 日志文件解析与校验
+├── analyser.py     # 数据统计与分析逻辑
+├── reporter.py     # 输出格式处理与文件写入
 ├── sample_logs/
 │   └── example.log
 └── README.md
+
 
 ## 学习收获
 
