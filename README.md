@@ -15,6 +15,8 @@ This tool automates log analysis by extracting log levels, safely handling malfo
 - Optional filtering by log level
 - Outputs results to the terminal, CSV file, or JSON file
 - Clean, modular Python codebase
+- Validates command-line arguments with clear error messages
+-Prevents conflicting output options
 
 ## How to run
 
@@ -33,6 +35,27 @@ python3 logtool.py --output report.csv
 Output results as JSON:
 
 python3 logtool.py -- json report.json
+
+## Command-line usage
+
+Basic usage:
+
+python3 logtool.py
+
+Filter by log level (case-insensitive):
+
+python3 logtool.py --level error
+
+Output results to a file:
+
+python3 logtool.py --output report.csv
+python3 logtool.py --json report.json
+
+Invalid usage examples:
+
+python3 logtool.py --level fatal
+python3 logtool.py --json a.json --output b.csv
+
 
 ## Example output
 
@@ -107,6 +130,27 @@ python3 logtool.py --output report.csv
 将结果输出为 JSON 文件：
 
 python3 logtool.py --json report.json
+
+## 命令行使用方式
+
+基本使用：
+
+python3 logtool.py
+
+按日志级别筛选（不区分大小写）：
+
+python3 logtool.py --level error
+
+将结果输出到文件：
+
+python3 logtool.py --output report.csv
+python3 logtool.py --json report.json
+
+无效使用示例：
+
+python3 logtool.py --level fatal
+python3 logtool.py --json a.json --output b.csv
+
 
 ## 示例输出
 
