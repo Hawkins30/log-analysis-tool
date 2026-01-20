@@ -5,10 +5,31 @@ from reporter import print_report, write_csv, write_json
 
 def main():
     parser = argparse.ArgumentParser(description="Log analysis tool")
-    parser.add_argument("--level", help="Filter by log level (ERROR, WARNING, INFO)")
-    parser.add_argument("--output", help="Output CSV file")
-    parser.add_argument("--json", help="Output JSON file")
+    parser.add_argument(
+        "--level",
+        help="Filter by log level (ERROR, WARNING, INFO)"
+    )
+    parser.add_argument(
+        "--output",
+        help="Write results to a CSV file"
+    )
+    parser.add_argument(
+        "--json",
+        help="Write results to a JSON file"
+    )
     args = parser.parse_args()
+
+    if args.level:
+        args.level = args.level.upper()
+        valid_levels = ["ERROR", "WARNING", "INFO"]
+        if args.level not in valid_levels:
+            print("Invalid log level:", args.level)
+            print("Valid options are: ERROR, WARNING, INFO")
+            return
+
+    if args.json and args.output:
+        print("Please choose only one output format: --json OR --output")
+        return
 
     log_file_path = "sample_logs/example.log"
     valid_levels = ["ERROR", "WARNING", "INFO"]
