@@ -75,6 +75,16 @@ INFO : 1
     │   └── example.log
     └── README.md
 
+## Tests
+
+Basic unit tests are included for the core parsing and analysis logic.
+
+To run the tests:
+
+python3 -m pytest
+
+Tests are intended to be run inside a Python virtual environment.
+
 ## What I learned
 
 - Building command-line tools with argparse
@@ -170,6 +180,15 @@ INFO : 1
     │   └── example.log
     └── README.md
 
+## 测试
+
+项目包含基础单元测试，用于验证日志解析和统计分析逻辑。
+
+运行测试：
+
+python3 -m pytest
+
+测试建议在 Python 虚拟环境中运行。
 
 ## 学习收获
 
