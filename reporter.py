@@ -1,12 +1,17 @@
-def output_results(counts, output_file=None):
-    if output_file:
-        with open(output_file, "w") as file:
-            file.write("level,count\n")
-            for level in counts:
-                file.write(level + "," + str(counts[level]) + "\n")
+import json
 
-        print("Report written to", output_file)
-    else:
-        print("Log level counts:")
-        for level in counts:
-            print(level, ":", counts[level])
+def print_report(level_counts):
+    print("Log level counts:")
+    for level in level_counts:
+        print(level, ":", level_counts[level])
+
+def write_csv(level_counts, output_path):
+    with open(output_path, "w") as output_file:
+        output_file.write("level,count\n")
+        for level in level_counts:
+            output_file.write(level + "," + str(level_counts[level]) + "\n")
+
+def write_json(level_counts, output_path):
+    with open(output_path, "w") as output_file:
+        json.dump(level_counts, output_file, indent=2)
+

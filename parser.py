@@ -1,4 +1,4 @@
-def parse_log_file(path, valid_levels):
+def parse_log_file(path, valid_levels, filter_level=None):
     entries = []
 
     with open(path, "r") as file:
@@ -14,10 +14,9 @@ def parse_log_file(path, valid_levels):
             if level not in valid_levels:
                 continue
 
-            entry = {
-                "level": level
-            }
+            if filter_level and level != filter_level:
+                continue
 
-            entries.append(entry)
+            entries.append(level)
 
     return entries

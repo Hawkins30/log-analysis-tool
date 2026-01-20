@@ -1,12 +1,7 @@
-def count_levels(entries, filter_level=None):
+def count_levels(entries):
     counts = {}
 
-    for entry in entries:
-        level = entry["level"]
-
-        if filter_level and level != filter_level:
-            continue
-
+    for level in entries:
         if level not in counts:
             counts[level] = 1
         else:
