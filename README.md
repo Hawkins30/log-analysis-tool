@@ -13,7 +13,7 @@ This tool automates log analysis by extracting log levels, safely handling malfo
 - Safely ignores malformed log entries
 - Counts log levels (ERROR, WARNING, INFO)
 - Optional filtering by log level
-- Outputs results to the terminal or a CSV file
+- Outputs results to the terminal, CSV file, or JSON file
 - Clean, modular Python codebase
 
 ## How to run
@@ -29,6 +29,10 @@ python3 logtool.py --level ERROR
 Write results to a CSV file:
 
 python3 logtool.py --output report.csv
+
+Output results as JSON:
+
+python3 logtool.py -- json report.json
 
 ## Example output
 
@@ -58,7 +62,7 @@ log_analyser/
 
 ## Future improvements
 
-- JSON output support
+- - Extended JSON reporting (metadata, timestamps)
 - Time-window analysis for incidents
 - Automated scheduling (cron)
 - Unit tests
@@ -83,7 +87,7 @@ log_analyser/
 - 安全地忽略格式不正确的日志行
 - 统计日志级别（ERROR、WARNING、INFO）
 - 支持按日志级别筛选结果
-- 支持在终端输出结果或导出为 CSV 文件
+- 支持在终端输出结果，或导出为 CSV / JSON 文件
 - 代码结构清晰，采用模块化设计
 
 ## 使用方法
@@ -99,6 +103,10 @@ python3 logtool.py --level ERROR
 将结果输出为 CSV 文件：
 
 python3 logtool.py --output report.csv
+
+将结果输出为 JSON 文件：
+
+python3 logtool.py --json report.json
 
 ## 示例输出
 
@@ -128,7 +136,7 @@ log_analyser/
 
 ## 后续改进方向
 
-- 支持 JSON 格式输出
+- - 扩展 JSON 输出内容（如元数据、统计信息）
 - 基于时间窗口的日志事件分析
 - 定时任务自动执行（cron）
 - 添加单元测试
