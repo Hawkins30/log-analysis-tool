@@ -13,13 +13,20 @@ def main():
     log_file_path = "sample_logs/example.log"
     valid_levels = ["ERROR", "WARNING", "INFO"]
 
-    entries = parse_log_file(
+    entries, malformed_count = parse_log_file(
         log_file_path,
         valid_levels,
         filter_level=args.level
     )
 
     level_counts = count_levels(entries)
+    total_valid = sum(level_counts.values())
+    error_count = level_counts.get("ERROR", 0)
+
+    if total_valid > 0:
+        error_percentage = (error_count / total_valid) * 100
+    else:
+        error_percentage = 0
 
     if args.json:
         write_json(level_counts, args.json)
@@ -29,5 +36,11 @@ def main():
         print("CSV report written to", args.output)
     else:
         print_report(level_counts)
+
+        print()
+        print("Summary:")
+        print("Total valid entried:", total_valid)
+        print("Malformed lines skipped:", malformed_count)
+        print("ERROR percentage:", round(error_percentage, 1), "%")
 
 main()
