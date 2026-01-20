@@ -1,0 +1,5 @@
+2026-01-12 14:33:01 ERROR User login failed
+2026-01-12 14:33:05 WARNING Disk usage high
+2026-01-12 14:33:10 INFO User logged out
+2026-01-12 14:34:01 ERROR Database connection failed
+THIS IS A BROKEN LOG LINE
